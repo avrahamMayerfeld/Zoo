@@ -31,23 +31,20 @@ public class DisplayAllServlet extends HttpServlet {
 		
 		FeedingSchedulesDAO dao = DAOUtilities.getFeedingSchedulesDao();
 		try {
-		 SchedList = dao.getAllScheds();
-		 AssignmentList = dao.getSchedAssignments();
-		request.setAttribute("SchedList", SchedList);
-		request.setAttribute("AssignmentList", AssignmentList);
+			SchedList = dao.getAllScheds();
+			AssignmentList = dao.getSchedAssignments();
+			request.setAttribute("SchedList", SchedList);
+			request.setAttribute("AssignmentList", AssignmentList);
+
+			request.getRequestDispatcher("displayall.jsp").forward(request, response);
+			for(Schedule s: SchedList){System.out.println(s.getRecurrence()+s.getFood()+s.getNotes()+s.getID()+s.getTime());}
 		
-		request.getRequestDispatcher("displayall.jsp").forward(request, response);
-		for(Schedule s: SchedList){System.out.println(s.getRecurrence()+s.getFood()+s.getNotes()+s.getID()+s.getTime());}
-		
-		                  	
 		 }catch (Exception e){
 			e.printStackTrace();
-			
-		
-			
 		 }
 	
-	}}
+	}
+}
 	
 
 	
