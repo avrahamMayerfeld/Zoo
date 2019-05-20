@@ -33,13 +33,13 @@ public class AssignScheduleServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int anid = Integer.parseInt(request.getParameter("animalid"));
-        int schedid= Integer.parseInt(request.getParameter("scheduleid"));
+        	int schedid= Integer.parseInt(request.getParameter("scheduleid"));
 		
 		 FeedingSchedulesDAO dao = DAOUtilities.getFeedingSchedulesDao();
-		try {
+		 try {
 			dao.assignSched(anid,schedid);
 		
-	}catch (Exception e){
+		 }catch (Exception e){
 			e.printStackTrace();
 			
 			request.getRequestDispatcher("assignSchedule.jsp").forward(request, response);
