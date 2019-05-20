@@ -26,13 +26,13 @@ public class cancelSchedServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int anid = Integer.parseInt(request.getParameter("ida"));
-        int schedid= Integer.parseInt(request.getParameter("idb"));
+        	int schedid= Integer.parseInt(request.getParameter("idb"));
 		
 		 FeedingSchedulesDAO dao = DAOUtilities.getFeedingSchedulesDao();
-		try {
+		 try {
 			dao.cancelSched(anid,schedid);
 		
-	}catch (Exception e){
+		 }catch (Exception e){
 			e.printStackTrace();
 			
 			request.getRequestDispatcher("displayall.jsp").forward(request, response);
