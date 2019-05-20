@@ -25,14 +25,13 @@ public class DeleteScheduleServlet extends HttpServlet {
 	}
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			int id = Integer.parseInt(request.getParameter("id"));
-        FeedingSchedulesDAO dao = DAOUtilities.getFeedingSchedulesDao();
+		int id = Integer.parseInt(request.getParameter("id"));
+        	FeedingSchedulesDAO dao = DAOUtilities.getFeedingSchedulesDao();
 		try {
 			dao.deleteSchedFromDB(id);
-	}catch (Exception e){
+		}catch (Exception e){
 			e.printStackTrace();
 			request.getRequestDispatcher("displayall.jsp").forward(request, response);
-
 		}
 	}
 }
