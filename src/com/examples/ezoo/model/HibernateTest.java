@@ -29,6 +29,7 @@ public class HibernateTest {
 		
 		session.beginTransaction();
 		session.save(new Animal(10058,"a","b","c","d","e","f","g","h",167,300,"x","great"));
-	session.getTransaction().commit();
+		session.getTransaction().commit();
 	
-	}}
+	}
+}
